@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 function Account() {
   return (
     <View>
-         <Header/>  
+      <Header />
       <Text>Account</Text>
     </View>
   );
