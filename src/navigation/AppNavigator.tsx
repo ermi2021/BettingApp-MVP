@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/react-in-jsx-scope */
@@ -9,7 +10,7 @@ import MyBets from "../screens/Bets";
 import Account from "../screens/Account";
 import News from "../screens/News";
 import {NavigationContainer} from "@react-navigation/native";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/Ionicons";
 import {theme} from "../utils/theme";
 
 const Tab = createBottomTabNavigator();
@@ -17,16 +18,14 @@ const Tab = createBottomTabNavigator();
 function AppNavigator(): JSX.Element {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="Home"
-        
-        screenOptions={
-          {tabBarStyle:{
-          
-            padding:5,
-            paddingHorizontal:10
-          }}
-        }
-      >
+      <Tab.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          tabBarStyle: {
+            padding: 5,
+            paddingHorizontal: 10,
+          },
+        }}>
         <Tab.Screen
           name="Home"
           options={{
@@ -34,11 +33,11 @@ function AppNavigator(): JSX.Element {
             tabBarActiveTintColor: theme.colors.secondary,
             tabBarInactiveTintColor: theme.colors.teritary,
 
-            tabBarIcon: ({focused, color, size}) => (
+            tabBarIcon: ({focused, color}) => (
               <Icon
-                name={focused ? "home" : "check"}
+                name={focused ? "home" : "home-outline"}
                 color={color}
-                size={size}
+                size={18}
               />
             ),
 
@@ -55,11 +54,11 @@ function AppNavigator(): JSX.Element {
             headerShown: false,
             tabBarActiveTintColor: theme.colors.secondary,
             tabBarInactiveTintColor: theme.colors.teritary,
-            tabBarIcon: ({focused, color, size}) => (
+            tabBarIcon: ({focused, color}) => (
               <Icon
-                name={focused ? "home" : "check"}
+                name={focused ? "list" : "list-outline"}
                 color={color}
-                size={size}
+                size={18}
               />
             ),
             tabBarLabelStyle: {
@@ -75,11 +74,11 @@ function AppNavigator(): JSX.Element {
             headerShown: false,
             tabBarActiveTintColor: theme.colors.secondary,
             tabBarInactiveTintColor: theme.colors.teritary,
-            tabBarIcon: ({focused, color, size}) => (
+            tabBarIcon: ({focused, color}) => (
               <Icon
-                name={focused ? "home" : "check"}
+                name={focused ? "newspaper" : "newspaper-outline"}
                 color={color}
-                size={size}
+                size={18}
               />
             ),
             tabBarLabelStyle: {
@@ -95,11 +94,11 @@ function AppNavigator(): JSX.Element {
             headerShown: false,
             tabBarActiveTintColor: theme.colors.secondary,
             tabBarInactiveTintColor: theme.colors.teritary,
-            tabBarIcon: ({focused, color, size}) => (
+            tabBarIcon: ({focused, color}) => (
               <Icon
-                name={focused ? "home" : "check"}
+                name={focused ? "person" : "person-outline"}
                 color={color}
-                size={size}
+                size={18}
               />
             ),
             tabBarLabelStyle: {

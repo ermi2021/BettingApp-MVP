@@ -8,9 +8,15 @@
 
 import React from "react";
 import AppNavigator from "./src/navigation/AppNavigator";
+import {View} from "react-native";
+import globalStyles from "./src/styles";
 
 function App(): JSX.Element {
-  return <AppNavigator />;
+  return (
+    <View style={globalStyles.container}>
+      <AppNavigator />
+    </View>
+  );
 }
 
 export default App;

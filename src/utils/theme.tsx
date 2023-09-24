@@ -7,13 +7,15 @@ export const theme = {
     teritary: "#a4a9b6",
     background: "#ffffff",
     text: "#333",
+    balanceIconBackground:"#d1efd6"
   },
   typography: {
     fontFamily: "Roboto, sans-serif",
     fontSize: {
-      small: "14px",
-      medium: "16px",
-      large: "18px",
+      small: 14,
+      medium: 16,
+      large: 18,
+      smaller:12
     },
     fontWeight: {
       regular: "400",
@@ -21,8 +23,8 @@ export const theme = {
     },
   },
   spacing: {
-    small: "8px",
-    medium: "16px",
-    large: "24px",
+    small: 8,
+    medium: 16,
+    large: 24,
   },
 };
