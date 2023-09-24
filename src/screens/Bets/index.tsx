@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import {View, Text} from "react-native";
 
-function Home() {
+function Bets() {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Bets</Text>
     </View>
   );
 }
 
-export default Home;
+export default Bets;

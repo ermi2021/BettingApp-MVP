@@ -1,12 +1,12 @@
 /* eslint-disable prettier/prettier */
 import {View, Text} from "react-native";
 
-function Home() {
+function Account() {
   return (
     <View>
-      <Text>Home</Text>
+      <Text>Account</Text>
     </View>
   );
 }
 
-export default Home;
+export default Account;
