@@ -18,7 +18,7 @@ function FeaturedEvent() {
       style={styles.feturedEventContainer}>
       <View style={styles.matchInfoContainer}>
         <View style={styles.teamContainer}>
-          <Image style={styles.teamLogo} source={FootballField} />
+          <Image style={styles.teamLogo} src={"https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-6-1200x750.png"} />
           <Text style={styles.teamName}>Manchester United</Text>
         </View>
         <View style={styles.matchInfo}>
@@ -26,7 +26,7 @@ function FeaturedEvent() {
           <Text style={styles.score}>0 : 2</Text>
         </View>
         <View style={styles.teamContainer}>
-          <Image style={styles.teamLogo} source={FootballField} />
+          <Image style={styles.teamLogo} src={"https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-4-1200x750.png"} />
           <Text style={styles.teamName}>Chelsea</Text>
         </View>
       </View>
