@@ -6,13 +6,35 @@ import styles from "./styles";
 import globalStyles from "../../styles";
 import Icon from "react-native-vector-icons/FontAwesome6";
 import UserAvatar from "react-native-user-avatar";
-function Header() {
+import {theme} from "../../utils/theme";
+interface HeaderProps {
+  detailPage?: boolean;
+}
+
+function Header({detailPage}: HeaderProps) {
   return (
     <View style={styles.container}>
-      <Text style={[globalStyles.appTitle, styles.title]}>PlaceIt</Text>
+      <Text
+        style={[
+          globalStyles.appTitle,
+          styles.title,
+          {
+            color: detailPage ? theme.colors.background : theme.colors.primary,
+          },
+        ]}>
+        PlaceIt
+      </Text>
       <View style={styles.userInfoContainer}>
         <Icon style={styles.balanceIcon} size={10} name="dollar-sign" />
-        <Text style={styles.balance}>22.34</Text>
+        <Text
+          style={[
+            styles.balance,
+            {
+              color: detailPage ? theme.colors.background : theme.colors.text,
+            },
+          ]}>
+          22.34
+        </Text>
         <TouchableOpacity style={styles.depositButton}>
           <Text style={styles.depositText}>Deposit</Text>
         </TouchableOpacity>

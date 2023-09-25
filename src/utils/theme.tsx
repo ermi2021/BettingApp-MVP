@@ -8,7 +8,8 @@ export const theme = {
     background: "#ffffff",
     text: "#333",
     balanceIconBackground:"#d1efd6",
-    green:"#3ca27a"
+    green:"#3ca27a",
+    transparentWhite:"#ffffffbb"
   },
   
   widthWithScreenSize:{
@@ -37,5 +38,6 @@ export const theme = {
     smaller:5,
     medium: 16,
     large: 24,
+    larger:26,
   },
 };
