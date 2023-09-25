@@ -5,15 +5,27 @@ import {View, Text, TouchableOpacity} from "react-native";
 import styles from "./styles";
 import globalStyles from "../../styles";
 import Icon from "react-native-vector-icons/FontAwesome6";
+import Icon5 from "react-native-vector-icons/FontAwesome";
 import UserAvatar from "react-native-user-avatar";
 import {theme} from "../../utils/theme";
 interface HeaderProps {
   detailPage?: boolean;
+  onBack?: () => void;
 }
 
-function Header({detailPage}: HeaderProps) {
+function Header({detailPage, onBack}: HeaderProps) {
+  const backClicked = () => {
+    if (onBack) onBack();
+  };
+
   return (
     <View style={styles.container}>
+      {detailPage && (
+        <TouchableOpacity style={{marginEnd: 20}} onPress={backClicked}>
+          <Icon5 name="angle-left" color={"white"} size={25} />
+        </TouchableOpacity>
+      )}
+
       <Text
         style={[
           globalStyles.appTitle,

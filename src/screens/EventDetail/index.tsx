@@ -1,11 +1,7 @@
+/* eslint-disable quotes */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-} from "react-native";
+import {View, Text, ImageBackground, TouchableOpacity} from "react-native";
 import {useState} from "react";
 import Header from "../../components/Header/Header";
 import {RecomendedListType} from "../../utils/ReccomendationList";
@@ -15,11 +11,13 @@ import MenuList from "../../components/MenuList";
 import {MenuData} from "../../utils/MenuTypeList";
 import SummaryList from "../../components/SummaryList";
 import MatchDetail from "../../components/MatchDetail";
+
 interface EventDetailProp {
   event: RecomendedListType;
+  onHideDetail: () => void;
 }
 
-function EventDetail({event}: EventDetailProp) {
+function EventDetail({event, onHideDetail}: EventDetailProp) {
   const [selectedMenu, setSelectedMenu] = useState<string>("Summary");
   const [leagueSelected, setLeagueSelected] = useState<boolean>(true);
 
@@ -27,10 +25,13 @@ function EventDetail({event}: EventDetailProp) {
     setSelectedMenu(menu.title);
   };
 
+  const handleBack = () => {
+    onHideDetail();
+  };
   return (
     <View>
       <ImageBackground source={FootBallField}>
-        <Header detailPage={true} />
+        <Header detailPage={true} onBack={handleBack} />
         <MatchDetail event={event} />
         <View style={styles.menuContainer}>
           <MenuList onSelect={MenuSelected} />
@@ -62,7 +63,7 @@ function EventDetail({event}: EventDetailProp) {
           </View>
         </View>
       </ImageBackground>
-      {selectedMenu == "Summary" ? <SummaryList /> : <></>}
+      {selectedMenu === "Summary" ? <SummaryList /> : <></>}
     </View>
   );
 }
