@@ -4,7 +4,7 @@
 import {View, Text, ImageBackground, TouchableOpacity} from "react-native";
 import {useState} from "react";
 import Header from "../../components/Header/Header";
-import {RecomendedListType} from "../../utils/ReccomendationList";
+import {EventType} from "../../utils/ReccomendationList";
 import FootBallField from "../../assets/Images/Football_field.png";
 import styles from "./styles";
 import MenuList from "../../components/MenuList";
@@ -13,7 +13,7 @@ import SummaryList from "../../components/SummaryList";
 import MatchDetail from "../../components/MatchDetail";
 
 interface EventDetailProp {
-  event: RecomendedListType;
+  event: EventType;
   onHideDetail: () => void;
 }
 
@@ -21,13 +21,16 @@ function EventDetail({event, onHideDetail}: EventDetailProp) {
   const [selectedMenu, setSelectedMenu] = useState<string>("Summary");
   const [leagueSelected, setLeagueSelected] = useState<boolean>(true);
 
+  //Triggerd when an item is selected from the MenuList Component
   const MenuSelected = (menu: MenuData) => {
     setSelectedMenu(menu.title);
   };
 
+  //Triggerd when back is clicked from the Header Component
   const handleBack = () => {
     onHideDetail();
   };
+  
   return (
     <View>
       <ImageBackground source={FootBallField}>

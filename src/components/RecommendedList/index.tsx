@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
@@ -11,32 +12,32 @@ import {
 } from "react-native";
 import styles from "./styles";
 import {
-  RecomendedListType,
+  EventType,
   RecomendedList,
 } from "../../utils/ReccomendationList";
 
-
-
 interface RecommendationListProps {
-  onSelect: (event: RecomendedListType) => void;
+  onSelect: (event: EventType) => void;
 }
 
 function RecommendedList({onSelect}: RecommendationListProps) {
-  function onEventClicked(event: RecomendedListType) {
+  function onEventClicked(event: EventType) {
     onSelect(event);
-  };
-  function renderItem(item: RecomendedListType) {
+  }
+  function renderItem(item: EventType) {
     return (
-      <TouchableOpacity style={styles.itemContainer}  onPress={() => {
-        onEventClicked(item);
-      }}>
+      <TouchableOpacity
+        style={styles.itemContainer}
+        onPress={() => {
+          onEventClicked(item);
+        }}>
         <View style={styles.teamInfoContainer}>
           <View style={styles.teamsIconContainer}>
             <Image src={item.teamOneIcon} style={styles.teamIcon1} />
             <Image src={item.teamTwoIcon} style={styles.teamIcon2} />
           </View>
           <View style={styles.matchInfoCont}>
-            <Text style={styles.teams}>{item.teams}</Text>
+            <Text style={styles.teams}>{item.team1} VS {item.team2}</Text>
             {item.live && (
               <View style={styles.liveContainer}>
                 <View style={styles.liveCircle}></View>
@@ -63,8 +64,7 @@ function RecommendedList({onSelect}: RecommendationListProps) {
       <FlatList
         style={styles.recommendationList}
         data={RecomendedList}
-        
-        renderItem={({item}: {item: RecomendedListType}) => renderItem(item)} // Use object destructuring to access 'item'
+        renderItem={({item}: {item: EventType}) => renderItem(item)} // Use object destructuring to access 'item'
         keyExtractor={item => item.id.toString()} // Convert 'id' to a string
       />
     </SafeAreaView>

@@ -2,27 +2,35 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable prettier/prettier */
 import {View} from "react-native";
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 import Header from "../../components/Header/Header";
 import styles from "./styles";
 import EventTypes from "../../components/EventTypes";
 import FeaturedEvent from "../../components/FeaturedEvent";
 import RecommendedList from "../../components/RecommendedList";
-import {RecomendedListType} from "../../utils/ReccomendationList";
+import {EventType} from "../../utils/EventType";
+import {Event} from "../../utils/EventTypesList";
 import EventDetail from "../EventDetail";
 
 function Home() {
   const [showEventDetail, setShowEventDetail] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState<RecomendedListType>([]);
+  const [selectedEvent, setSelectedEvent] = useState<EventType>();
+  const [selectedEventType, setSelectedEventType] = useState<string>("Football");
 
-  const onEventSelected = (item: RecomendedListType) => {
+  //when specific event is clicked from the Recommeded List
+  const onEventSelected = (item: EventType) => {
     setShowEventDetail(true);
     setSelectedEvent(item);
   };
+ 
+  //when event is selected from the EventTypes default is FootBall
+  const onEventTypeSelected = (item: Event) => {
+    setSelectedEventType(item.name);
+  };
 
+  //to allow user hide the userdetail page
   const hideDetail = () => {
-    console.log("clicked");
     setShowEventDetail(false);
   };
 
@@ -32,9 +40,17 @@ function Home() {
         {!showEventDetail ? (
           <>
             <Header />
-            <EventTypes />
-            <FeaturedEvent />
-            <RecommendedList onSelect={onEventSelected} />
+            <EventTypes onSelect={onEventTypeSelected} />
+            <>
+              {selectedEventType === "Football" ? (
+                <>
+                  <FeaturedEvent />
+                  <RecommendedList onSelect={onEventSelected} />
+                </>
+              ) : (
+                <></>
+              )}
+            </>
           </>
         ) : (
           <EventDetail event={selectedEvent} onHideDetail={hideDetail} />

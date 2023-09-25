@@ -4,11 +4,11 @@
 /* eslint-disable prettier/prettier */
 import {Text, View, Image} from "react-native";
 import styles from "./styles";
-import {RecomendedListType} from "../../utils/ReccomendationList";
+import {EventType} from "../../utils/ReccomendationList";
 
 import Odds from "../Odds";
 interface EventProps {
-  event: RecomendedListType;
+  event: EventType;
 }
 
 function MatchDetail({event}: EventProps) {
@@ -20,7 +20,9 @@ function MatchDetail({event}: EventProps) {
           <Image src={event.teamTwoIcon} style={styles.teamIcon2} />
         </View>
         <View style={styles.matchInfoCont}>
-          <Text style={styles.teams}>{event.teams}</Text>
+          <Text style={styles.teams}>
+            {event.team1} VS {event.team2}
+          </Text>
           {event.live && (
             <View style={styles.liveContainer}>
               <View style={styles.liveCircle}></View>
@@ -37,7 +39,7 @@ function MatchDetail({event}: EventProps) {
           <Text style={styles.score}>2</Text>
         </View>
       </View>
-      <Odds detailPage={true} />
+      <Odds detailPage={true} odd={event.odd} />
     </View>
   );
 }

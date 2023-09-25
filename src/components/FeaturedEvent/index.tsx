@@ -5,9 +5,10 @@
 /* eslint-disable prettier/prettier */
 import {View, Text, ImageBackground, Image} from "react-native";
 import styles from "./styles";
-import FootballField from "../../assets/Images/Football_field.png"
+import FootballField from "../../assets/Images/Football_field.png";
 import BackgroundGradient from "../../assets/Images/gradient_background.png";
 import Odds from "../Odds";
+import {FeaturedList} from "../../utils/FeturedEvent";
 
 function FeaturedEvent() {
   return (
@@ -18,7 +19,12 @@ function FeaturedEvent() {
       style={styles.feturedEventContainer}>
       <View style={styles.matchInfoContainer}>
         <View style={styles.teamContainer}>
-          <Image style={styles.teamLogo} src={"https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-6-1200x750.png"} />
+          <Image
+            style={styles.teamLogo}
+            src={
+              "https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-6-1200x750.png"
+            }
+          />
           <Text style={styles.teamName}>Manchester United</Text>
         </View>
         <View style={styles.matchInfo}>
@@ -26,12 +32,16 @@ function FeaturedEvent() {
           <Text style={styles.score}>0 : 2</Text>
         </View>
         <View style={styles.teamContainer}>
-          <Image style={styles.teamLogo} src={"https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-4-1200x750.png"} />
-          <Text style={styles.teamName}>Chelsea</Text>
+          <Image
+            style={styles.teamLogo}
+            src={
+              "https://fabrikbrands.com/wp-content/uploads/Premier-League-Team-Logos-4-1200x750.png"
+            }
+          />
+          <Text style={styles.teamName}>{FeaturedList.te</Text>
         </View>
       </View>
-      <Odds/>
-    
+      <Odds odd={FeaturedList.odd} />
     </ImageBackground>
   );
 }

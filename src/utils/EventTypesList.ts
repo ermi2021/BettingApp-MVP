@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
-export interface EventType {
+export interface Event {
   id: number;
   name: string;
   icon: string;
 }
 
-export const EventList: EventType[] = [
+export const EventList: Event[] = [
   {
     id: 1,
     name: "Football",

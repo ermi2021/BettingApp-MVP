@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
-import {View, Text} from "react-native";
+import {View} from "react-native";
 import Header from "../../components/Header/Header";
+import MyBetsList from "../../components/MyBets";
+
 function Bets() {
   return (
     <View>
-       <Header/>  
-      <Text>Bets</Text>
+      <Header />
+      <MyBetsList />
     </View>
   );
 }
